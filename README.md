@@ -126,4 +126,57 @@ pnpm dev
 
 运行该命令后，你可以在浏览器中打开 [http://localhost:3000](http://localhost:3000) 查看 explorer 是否正常运行。
 
+## 🧪 运行E2E测试
+
+1. 使用以下命令安装 `Playwright` 及其依赖项，包括 `Chromium`
+
+```sh
+pnpm exec playwright install --with-deps chromium
+```
+
+2. 在 `packages/graphql` 目录下基于提供的示例创建 `.env` 文件
+
+```sh
+cp packages/graphql/.env.example packages/graphql/.env
+```
+
+3. 启动本地节点服务器
+
+```sh
+pnpm node:start
+```
+
+4. 最后，可以使用以下命令运行E2E测试：
+
+```sh
+pnpm test:e2e
+```
+
+## 🧰 有用的脚本
+
+为了让开发更方便，我们在 [package.json](https://github.com/FuelLabs/fuel-explorer/blob/main/package.json) 中添加了许多有用的脚本。
+以下是开发过程中最常用的一些脚本：
+
+```sh
+pnpm <command name>
+```
+
+| 脚本             | 描述                                                |
+| -------------- | ------------------------------------------------- |
+| `dev`          | 运行开发服务器（仅前端）                             |
+| `node:start`   | 使用 `fuel-core` 和 `faucet` API 运行本地网络。      |
+| `node:stop`    | 停止所有容器但不删除数据                             |
+| `node:clean`   | 停止并删除本地运行的所有开发容器                      |
+| `node:restart` | 重启所有容器但不删除数据                             |
+| `test:e2e`     | 运行E2E测试                                         |
+| `ts:check`     | 运行TypeScript编译器                                 |
+
+> 其他脚本可以在 [package.json](https://github.com/FuelLabs/fuel-explorer/blob/main/package.json) 中找到。
+
+---
+
+# 参考资料
+
+[FuelLabs/fuel-explorer](https://github.com/FuelLabs/fuel-explorer)
+
 
